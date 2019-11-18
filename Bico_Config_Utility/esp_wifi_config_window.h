@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <iostream>
 
 #include "com_port_manager.h"
 #include "available_com_port_combobox.h"
@@ -12,6 +13,8 @@
 #define SETTING_WIFI_CONFIG "SETTING_WIFI_CONFIG"
 #define WIFI_CONNECT "WIFI_CONNECT"
 #define WIFI_DISCONNECT "WIFI_DISCONNECT"
+
+using namespace std;
 
 namespace Ui {
 class ESP_Wifi_Config_Window;
