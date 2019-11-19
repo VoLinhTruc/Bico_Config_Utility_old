@@ -117,5 +117,14 @@ private slots:
     void on_activity_config_setting_to_text_clicked();
     void on_publish_mode_comboBox_currentTextChanged(const QString &arg1);
     void on_trigger_type_comboBox_currentTextChanged(const QString &arg1);
+    void on_pin_16_pushButton_clicked();
+    void on_pin_5_pushButton_clicked();
+    void on_pin_4_pushButton_clicked();
+    void on_pin_0_pushButton_clicked();
+    void on_pin_2_pushButton_clicked();
+    void on_pin_14_pushButton_clicked();
+    void on_pin_12_pushButton_clicked();
+    void on_pin_13_pushButton_clicked();
+    void on_pin_15_pushButton_clicked();
 };
 #endif // ESP_MQTT_CONFIG_WINDOW_H

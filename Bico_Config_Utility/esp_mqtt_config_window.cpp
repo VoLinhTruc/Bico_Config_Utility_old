@@ -403,6 +403,22 @@ void ESP_MQTT_Config_Window::on_setting_to_text_clicked()
             on_activity_config_setting_to_text_clicked();
         }
     }
+    else if(ui->setting_tabWidget->currentWidget()->objectName() == QString("hardware_tab"))
+    {
+        QJsonObject temp_json_obj;
+        (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+        (temp_json_obj)["_pin_16_mode"] = ui->pin_16_comboBox->currentText();
+        (temp_json_obj)["_pin_5_mode"] = ui->pin_5_comboBox->currentText();
+        (temp_json_obj)["_pin_4_mode"] = ui->pin_4_comboBox->currentText();
+        (temp_json_obj)["_pin_0_mode"] = ui->pin_0_comboBox->currentText();
+        (temp_json_obj)["_pin_2_mode"] = ui->pin_2_comboBox->currentText();
+        (temp_json_obj)["_pin_14_mode"] = ui->pin_14_comboBox->currentText();
+        (temp_json_obj)["_pin_12_mode"] = ui->pin_12_comboBox->currentText();
+        (temp_json_obj)["_pin_13_mode"] = ui->pin_13_comboBox->currentText();
+        (temp_json_obj)["_pin_15_mode"] = ui->pin_15_comboBox->currentText();
+
+        JsonObjectToPlaintText(temp_json_obj);
+    }
 }
 
 void ESP_MQTT_Config_Window::on_text_to_setting_clicked()
@@ -568,14 +584,7 @@ void ESP_MQTT_Config_Window::on_text_to_setting_clicked()
 
                     if(json_obj.contains("_publish_running_mode"))
                     {
-                        if(json_obj["_publish_running_mode"].toInt() == CONTINUOUS)
-                        {
-                            ui->publish_mode_comboBox->setCurrentText("Continous");
-                        }
-                        else if(json_obj["_publish_running_mode"].toInt() == TRIGGER)
-                        {
-                            ui->publish_mode_comboBox->setCurrentText("Trigger");
-                        }
+                        ui->publish_mode_comboBox->setCurrentText(json_obj["_publish_running_mode"].toString());
                     }
 
                     if(json_obj.contains("_publish_trigger_pin"))
@@ -590,18 +599,47 @@ void ESP_MQTT_Config_Window::on_text_to_setting_clicked()
 
                     if(json_obj.contains("_publish_trigger_type"))
                     {
-                        if(json_obj["_publish_trigger_type"].toInt() == RISING_AND_FALLING_TRIGGER)
-                        {
-                            ui->trigger_type_comboBox->setCurrentText("Rising or Falling");
-                        }
-                        else if(json_obj["_publish_trigger_type"].toInt() == RISING_TRIGGER)
-                        {
-                            ui->trigger_type_comboBox->setCurrentText("Rising");
-                        }
-                        else if(json_obj["_publish_trigger_type"].toInt() == FALLING_TRIGGER)
-                        {
-                            ui->trigger_type_comboBox->setCurrentText("Falling");
-                        }
+                        ui->trigger_type_comboBox->setCurrentText(json_obj["_publish_trigger_type"].toString());
+                    }
+                }
+
+                else if(command == QString(SETTING_PINMODE))
+                {
+                    if(json_obj.contains("_pin_16_mode"))
+                    {
+                        ui->pin_16_comboBox->setCurrentText((json_obj["_pin_16_mode"].toString()));
+                    }
+                    if(json_obj.contains("_pin_5_mode"))
+                    {
+                        ui->pin_5_comboBox->setCurrentText((json_obj["_pin_5_mode"].toString()));
+                    }
+                    if(json_obj.contains("_pin_4_mode"))
+                    {
+                        ui->pin_4_comboBox->setCurrentText((json_obj["_pin_4_mode"].toString()));
+                    }
+                    if(json_obj.contains("_pin_0_mode"))
+                    {
+                        ui->pin_0_comboBox->setCurrentText((json_obj["_pin_0_mode"].toString()));
+                    }
+                    if(json_obj.contains("_pin_2_mode"))
+                    {
+                        ui->pin_2_comboBox->setCurrentText((json_obj["_pin_2_mode"].toString()));
+                    }
+                    if(json_obj.contains("_pin_14_mode"))
+                    {
+                        ui->pin_14_comboBox->setCurrentText((json_obj["_pin_14_mode"].toString()));
+                    }
+                    if(json_obj.contains("_pin_12_mode"))
+                    {
+                        ui->pin_12_comboBox->setCurrentText((json_obj["_pin_12_mode"].toString()));
+                    }
+                    if(json_obj.contains("_pin_13_mode"))
+                    {
+                        ui->pin_13_comboBox->setCurrentText((json_obj["_pin_13_mode"].toString()));
+                    }
+                    if(json_obj.contains("_pin_15_mode"))
+                    {
+                        ui->pin_15_comboBox->setCurrentText((json_obj["_pin_15_mode"].toString()));
                     }
                 }
             }
@@ -668,14 +706,7 @@ void ESP_MQTT_Config_Window::on_push_mode_pushButton_clicked()
 {
     QJsonObject temp_json_obj;
     (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_ACTIVITY_CONFIG;
-    if(ui->publish_mode_comboBox->currentText() == QString("Continous"))
-    {
-        (temp_json_obj)["_publish_running_mode"] = CONTINUOUS;
-    }
-    else if(ui->publish_mode_comboBox->currentText() == QString("Trigger"))
-    {
-        (temp_json_obj)["_publish_running_mode"] = TRIGGER;
-    }
+    (temp_json_obj)["_publish_running_mode"] = ui->publish_mode_comboBox->currentText();
 
     JsonObjectToPlaintText(temp_json_obj);
 }
@@ -693,18 +724,7 @@ void ESP_MQTT_Config_Window::on_trigger_type_pushButton_clicked()
 {
     QJsonObject temp_json_obj;
     (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_ACTIVITY_CONFIG;
-    if(ui->trigger_type_comboBox->currentText() == QString("Rising or Falling"))
-    {
-        (temp_json_obj)["_publish_trigger_type"] = RISING_AND_FALLING_TRIGGER;
-    }
-    else if(ui->trigger_type_comboBox->currentText() == QString("Rising"))
-    {
-        (temp_json_obj)["_publish_trigger_type"] = RISING_TRIGGER;
-    }
-    else if(ui->trigger_type_comboBox->currentText() == QString("Falling"))
-    {
-        (temp_json_obj)["_publish_trigger_type"] = FALLING_TRIGGER;
-    }
+    (temp_json_obj)["_publish_trigger_type"] = ui->trigger_type_comboBox->currentText();
 
     JsonObjectToPlaintText(temp_json_obj);
 }
@@ -753,41 +773,11 @@ void ESP_MQTT_Config_Window::on_activity_config_setting_to_text_clicked()
 {
     QJsonObject temp_json_obj;
     (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_ACTIVITY_CONFIG;
-
-    if(ui->publish_mode_comboBox->currentText() == QString("Continous"))
-    {
-        (temp_json_obj)["_publish_running_mode"] = CONTINUOUS;
-    }
-    else if(ui->publish_mode_comboBox->currentText() == QString("Trigger"))
-    {
-        (temp_json_obj)["_publish_running_mode"] = TRIGGER;
-    }
-
+    (temp_json_obj)["_publish_running_mode"] = ui->publish_mode_comboBox->currentText();
     (temp_json_obj)["_publish_continuous_interval"] = ui->continous_interval_lineEdit->text().toInt();
-
-    if(ui->trigger_type_comboBox->currentText() == QString("Rising or Falling"))
-    {
-        (temp_json_obj)["_publish_trigger_type"] = RISING_AND_FALLING_TRIGGER;
-    }
-    else if(ui->trigger_type_comboBox->currentText() == QString("Rising"))
-    {
-        (temp_json_obj)["_publish_trigger_type"] = RISING_TRIGGER;
-    }
-    else if(ui->trigger_type_comboBox->currentText() == QString("Falling"))
-    {
-        (temp_json_obj)["_publish_trigger_type"] = FALLING_TRIGGER;
-    }
-
+    (temp_json_obj)["_publish_trigger_type"] = ui->trigger_type_comboBox->currentText();
     (temp_json_obj)["_publish_trigger_pin"] = ui->trigger_pin_lineEdit->text().toInt();
-
-    if(ui->uart_trigger_sign_lineEdit->text() != QString(""))
-    {
-        (temp_json_obj)["_publish_trigger_sign"] = ui->uart_trigger_sign_lineEdit->text().mid(0, 1);
-    }
-    else
-    {
-        (temp_json_obj)["_publish_trigger_sign"] = "";
-    }
+    (temp_json_obj)["_publish_trigger_sign"] = ui->uart_trigger_sign_lineEdit->text().mid(0, 1);
 
     JsonObjectToPlaintText(temp_json_obj);
 }
@@ -813,4 +803,85 @@ void ESP_MQTT_Config_Window::on_publish_mode_comboBox_currentTextChanged(const Q
 void ESP_MQTT_Config_Window::on_trigger_type_comboBox_currentTextChanged(const QString &arg1)
 {
 
+}
+
+void ESP_MQTT_Config_Window::on_pin_16_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+    (temp_json_obj)["_pin_16_mode"] = ui->pin_16_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_pin_5_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+    (temp_json_obj)["_pin_5_mode"] = ui->pin_5_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_pin_4_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+    (temp_json_obj)["_pin_4_mode"] = ui->pin_4_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_pin_0_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+    (temp_json_obj)["_pin_0_mode"] = ui->pin_0_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_pin_2_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+    (temp_json_obj)["_pin_2_mode"] = ui->pin_2_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_pin_14_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+    (temp_json_obj)["_pin_14_mode"] = ui->pin_14_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_pin_12_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+    (temp_json_obj)["_pin_12_mode"] = ui->pin_12_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_pin_13_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+    (temp_json_obj)["_pin_13_mode"] = ui->pin_13_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_pin_15_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
+    (temp_json_obj)["_pin_15_mode"] = ui->pin_15_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
 }
