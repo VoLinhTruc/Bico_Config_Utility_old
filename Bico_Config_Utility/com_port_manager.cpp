@@ -77,6 +77,24 @@ char Com_Port_Manager::read()
     }
 }
 
+QString Com_Port_Manager::readString()
+{
+    if(*com_port_state == CONNECTING)
+    {
+        QString result = "";
+        while(available() > 0)
+        {
+            result += QString(read());
+        }
+
+        return result;
+    }
+    else
+    {
+        return QString("");
+    }
+}
+
 void Com_Port_Manager::write(char data)
 {
     if(*com_port_state == CONNECTING)

@@ -8,6 +8,7 @@
 
 #include "com_port_manager.h"
 #include "available_com_port_combobox.h"
+#include "application_message_builder_dialog.h"
 
 #define BC_MQSC_COMMAND "BC_MQSC_COMMAND"
 #define BC_MQSC_COMMAND_SEPERATOR "-----BC_MQSC_COMMAND_SEPERATOR-----"
@@ -17,6 +18,40 @@
 #define SETTING_PUBLISH_PACKAGE "SETTING_PUBLISH_PACKAGE"
 #define SETTING_ACTIVITY_CONFIG "SETTING_ACTIVITY_CONFIG"
 #define SETTING_PINMODE "SETTING_PINMODE"
+
+#define BC_MQSC_GET_PROPERTIES "BC_MQSC_GET_PROPERTIES"
+#define BC_MQSC_PROPERTIES "BC_MQSC_PROPERTIES"
+#define BROKER_INFO_PROPERTIES "BROKER_INFO_PROPERTIES"
+#define CONNECT_PACKAGE_PROPERTIES "CONNECT_PACKAGE_PROPERTIES"
+#define SUBSCRIBE_PACKAGE_PROPERTIES "SUBSCRIBE_PACKAGE_PROPERTIES"
+#define PUBLISH_PACKAGE_PROPERTIES "PUBLISH_PACKAGE_PROPERTIES"
+#define ACTIVITY_CONFIG_PROPERTIES "ACTIVITY_CONFIG_PROPERTIES"
+#define PINMODE_PROPERTIES "PINMODE_PROPERTIES"
+#define ALL_PROPERTIES "ALL_PROPERTIES"
+
+#define MQTT_ACTION_CONNECT "MQTT_ACTION_CONNECT"
+#define MQTT_ACTION_SUBSCRIBE "MQTT_ACTION_SUBSCRIBE"
+#define MQTT_ACTION_PUBLISH "MQTT_ACTION_PUBLISH"
+#define MQTT_ACTION_UNSUBSCRIBE "MQTT_ACTION_UNSUBSCRIBE"
+#define MQTT_ACTION_DISCONNECT "MQTT_ACTION_DISCONNECT"
+#define MQTT_ACTION_PING "MQTT_ACTION_PING"
+
+#define BC_MQSC_DEVICE_REBOOT "BC_MQSC_DEVICE_REBOOT"
+
+#ifndef DIGITAL_READ_COMMAND
+#define DIGITAL_READ_COMMAND "DIGITAL_READ_COMMAND"
+#endif
+#ifndef ANALOG_READ_COMMAND
+#define ANALOG_READ_COMMAND "ANALOG_READ_COMMAND"
+#endif
+#ifndef DIGITAL_WRITE_COMMAND
+#define DIGITAL_WRITE_COMMAND "DIGITAL_WRITE_COMMAND"
+#endif
+#ifndef ANALOG_WRITE_COMMAND
+#define ANALOG_WRITE_COMMAND "ANALOG_WRITE_COMMAND"
+#endif
+
+
 
 typedef enum
 {
@@ -55,12 +90,16 @@ private:
 //Dev's Properties------------------------------------------------------
 // Attributes --------------------------
 public:
+    friend class Application_message_Builder_Dialog;
 
 private:
     Com_Port_Manager *com_port_manager;
     Available_Com_Port_ComboBox *bico_port_list_comboBox;
     QTimer *get_serial_data_timer;
     QMetaObject::Connection get_serial_data_timer_connection;
+    Application_message_Builder_Dialog* application_message_builder_dialog;
+    QMetaObject::Connection application_message_builder_dialog_accepted_connection;
+    QMetaObject::Connection application_message_builder_dialog_rejected_connection;
 // Attributes --------------------------
 
 // Methods --------------------------
@@ -74,6 +113,8 @@ private:
 
 public slots:
     void update_serial_data_to_plaint_text();
+    void getResultFromApplicationMessageBuilderDialog();
+    void handlingApplicationMessageBuilderDialog();
 // Methods --------------------------
 //Dev's Properties------------------------------------------------------
 private slots:
@@ -126,5 +167,20 @@ private slots:
     void on_pin_12_pushButton_clicked();
     void on_pin_13_pushButton_clicked();
     void on_pin_15_pushButton_clicked();
+    void on_message_builder_pushButton_clicked();
+    void on_get_broker_properties_pushButton_clicked();
+    void on_get_connect_properties_pushButton_clicked();
+    void on_get_subscribe_properties_pushButton_clicked();
+    void on_get_publish_properties_pushButton_clicked();
+    void on_get_activity_properties_pushButton_clicked();
+    void on_get_pin_mode_properties_pushButton_clicked();
+    void on_get_all_properties_pushButton_clicked();
+    void on_connect_command_pushButton_clicked();
+    void on_subscribe_command_pushButton_clicked();
+    void on_publish_command_pushButton_clicked();
+    void on_unsubscribe_command_pushButton_clicked();
+    void on_disconnect_command_pushButton_clicked();
+    void on_ping_command_pushButton_clicked();
+    void on_device_reboot_pushButton_clicked();
 };
 #endif // ESP_MQTT_CONFIG_WINDOW_H

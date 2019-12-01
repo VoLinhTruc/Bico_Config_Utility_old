@@ -31,6 +31,6 @@ void Available_Com_Port_ComboBox::updateItemList()
 
     for(int i = 0; i < list.size(); i++)
     {
-        addItem(list[i].portName()+ "," + list[i].description() + "," + list[i].manufacturer()+ "," + QString::number(list[i].productIdentifier()));
+        addItem(list[i].portName() + "," + list[i].manufacturer()/* + "," + list[i].description() + "," + QString::number(list[i].productIdentifier())*/);
     }
 }

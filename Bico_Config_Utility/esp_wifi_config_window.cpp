@@ -18,7 +18,14 @@ void ESP_Wifi_Config_Window::devConstruct()
     setAttribute(Qt::WA_DeleteOnClose);
 
     com_port_manager = new Com_Port_Manager(this);
+
     bico_port_list_comboBox = new Available_Com_Port_ComboBox(ui->port_list_comboBox);
+    QList<QSerialPortInfo> list = QSerialPortInfo::availablePorts();
+    for(int i = 0; i < list.size(); i++)
+    {
+        bico_port_list_comboBox->addItem(list[i].portName() + "," + list[i].manufacturer()/* + "," + list[i].description() + "," + QString::number(list[i].productIdentifier())*/);
+    }
+    bico_port_list_comboBox->setCurrentIndex(0);
 
     get_serial_data_timer = new QTimer(this);
     get_serial_data_timer->setInterval(1);
@@ -34,8 +41,7 @@ void ESP_Wifi_Config_Window::update_serial_data_to_plaint_text()
 {
     if(com_port_manager->available() > 0)
     {
-        QString temp_string = ui->data_from_com_port_plainTextEdit->toPlainText()+QString(com_port_manager->read());
-        ui->data_from_com_port_plainTextEdit->setPlainText(temp_string);
+        ui->data_from_com_port_plainTextEdit->insertPlainText(QString(com_port_manager->readString()));
         ui->data_from_com_port_plainTextEdit->verticalScrollBar()->setValue(ui->data_from_com_port_plainTextEdit->verticalScrollBar()->maximum());
     }
 }

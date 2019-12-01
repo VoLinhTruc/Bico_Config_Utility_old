@@ -24,6 +24,7 @@ public:
 
     qint64 available();
     char read();
+    QString readString();
     void write(char data);
     qint64 print(QString string);
 

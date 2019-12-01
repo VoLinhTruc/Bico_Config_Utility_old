@@ -19,7 +19,14 @@ void ESP_MQTT_Config_Window::devConstruct()
     setAttribute(Qt::WA_DeleteOnClose);
 
     com_port_manager = new Com_Port_Manager(this);
+
     bico_port_list_comboBox = new Available_Com_Port_ComboBox(ui->port_list_comboBox);
+    QList<QSerialPortInfo> list = QSerialPortInfo::availablePorts();
+    for(int i = 0; i < list.size(); i++)
+    {
+        bico_port_list_comboBox->addItem(list[i].portName() + "," + list[i].manufacturer()/* + "," + list[i].description() + "," + QString::number(list[i].productIdentifier())*/);
+    }
+    bico_port_list_comboBox->setCurrentIndex(0);
 
     get_serial_data_timer = new QTimer(this);
     get_serial_data_timer->setInterval(1);
@@ -56,10 +63,25 @@ void ESP_MQTT_Config_Window::update_serial_data_to_plaint_text()
 {
     if(com_port_manager->available() > 0)
     {
-        QString temp_string = ui->data_from_com_port_plainTextEdit->toPlainText()+QString(com_port_manager->read());
-        ui->data_from_com_port_plainTextEdit->setPlainText(temp_string);
+        ui->data_from_com_port_plainTextEdit->insertPlainText(QString(com_port_manager->readString()));
         ui->data_from_com_port_plainTextEdit->verticalScrollBar()->setValue(ui->data_from_com_port_plainTextEdit->verticalScrollBar()->maximum());
     }
+}
+
+
+void ESP_MQTT_Config_Window::getResultFromApplicationMessageBuilderDialog()
+{
+    QString result_str = application_message_builder_dialog->getResult();
+    ui->application_message_plainTextEdit->insertPlainText(result_str);
+
+    disconnect(application_message_builder_dialog_accepted_connection);
+    delete application_message_builder_dialog;
+}
+
+void ESP_MQTT_Config_Window::handlingApplicationMessageBuilderDialog()
+{
+    disconnect(application_message_builder_dialog_rejected_connection);
+    delete application_message_builder_dialog;
 }
 
 // No using this anymore because I have puted setAttribute(Qt::WA_DeleteOnClose); in devInit()
@@ -338,6 +360,7 @@ void ESP_MQTT_Config_Window::on_start_up_general_setting_checkBox_stateChanged(i
         ui->protocol_level_lineEdit->setText("4");
         ui->keep_alive_lineEdit->setText("60");
         ui->client_identifier_lineEdit->setText(QString("client_")+QString::number(QRandomGenerator::global()->bounded(0, 10))+QString::number(QRandomGenerator::global()->bounded(0, 10))+QString::number(QRandomGenerator::global()->bounded(0, 10))+QString::number(QRandomGenerator::global()->bounded(0, 10)));
+        ui->max_qos_comboBox->setCurrentText("0");
     }
     else
     {
@@ -882,6 +905,133 @@ void ESP_MQTT_Config_Window::on_pin_15_pushButton_clicked()
     QJsonObject temp_json_obj;
     (temp_json_obj)[BC_MQSC_COMMAND] = SETTING_PINMODE;
     (temp_json_obj)["_pin_15_mode"] = ui->pin_15_comboBox->currentText();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_message_builder_pushButton_clicked()
+{
+    application_message_builder_dialog = new Application_message_Builder_Dialog(this);
+    application_message_builder_dialog_accepted_connection = connect(application_message_builder_dialog, SIGNAL(accepted()), this, SLOT(getResultFromApplicationMessageBuilderDialog()));
+    application_message_builder_dialog_rejected_connection = connect(application_message_builder_dialog, SIGNAL(rejected()), this, SLOT(handlingApplicationMessageBuilderDialog()));
+    application_message_builder_dialog->exec();
+}
+
+void ESP_MQTT_Config_Window::on_get_broker_properties_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = BC_MQSC_GET_PROPERTIES;
+    (temp_json_obj)[BC_MQSC_PROPERTIES] = BROKER_INFO_PROPERTIES;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_get_connect_properties_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = BC_MQSC_GET_PROPERTIES;
+    (temp_json_obj)[BC_MQSC_PROPERTIES] = CONNECT_PACKAGE_PROPERTIES;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_get_subscribe_properties_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = BC_MQSC_GET_PROPERTIES;
+    (temp_json_obj)[BC_MQSC_PROPERTIES] = SUBSCRIBE_PACKAGE_PROPERTIES;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_get_publish_properties_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = BC_MQSC_GET_PROPERTIES;
+    (temp_json_obj)[BC_MQSC_PROPERTIES] = PUBLISH_PACKAGE_PROPERTIES;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_get_activity_properties_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = BC_MQSC_GET_PROPERTIES;
+    (temp_json_obj)[BC_MQSC_PROPERTIES] = ACTIVITY_CONFIG_PROPERTIES;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_get_pin_mode_properties_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = BC_MQSC_GET_PROPERTIES;
+    (temp_json_obj)[BC_MQSC_PROPERTIES] = PINMODE_PROPERTIES;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_get_all_properties_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = BC_MQSC_GET_PROPERTIES;
+    (temp_json_obj)[BC_MQSC_PROPERTIES] = ALL_PROPERTIES;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_connect_command_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = MQTT_ACTION_CONNECT;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_subscribe_command_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = MQTT_ACTION_SUBSCRIBE;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_publish_command_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = MQTT_ACTION_PUBLISH;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_unsubscribe_command_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = MQTT_ACTION_UNSUBSCRIBE;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_disconnect_command_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = MQTT_ACTION_DISCONNECT;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_ping_command_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = MQTT_ACTION_PING;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_device_reboot_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = BC_MQSC_DEVICE_REBOOT;
 
     JsonObjectToPlaintText(temp_json_obj);
 }

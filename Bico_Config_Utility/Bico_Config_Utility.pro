@@ -26,7 +26,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        application_message_builder_dialog.cpp \
         available_com_port_combobox.cpp \
+        com_port_get_data_thread.cpp \
         com_port_manager.cpp \
         esp_mqtt_config_window.cpp \
         esp_wifi_config_window.cpp \
@@ -35,7 +37,9 @@ SOURCES += \
         wifi_station_setting_manager.cpp
 
 HEADERS += \
+        application_message_builder_dialog.h \
         available_com_port_combobox.h \
+        com_port_get_data_thread.h \
         com_port_manager.h \
         esp_mqtt_config_window.h \
         esp_wifi_config_window.h \
@@ -43,11 +47,15 @@ HEADERS += \
         wifi_station_setting_manager.h
 
 FORMS += \
+        application_message_builder_dialog.ui \
         esp_mqtt_config_window.ui \
         esp_wifi_config_window.ui \
         mainwindow.ui
 
+`
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES +=
