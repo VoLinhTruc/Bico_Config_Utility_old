@@ -1035,3 +1035,263 @@ void ESP_MQTT_Config_Window::on_device_reboot_pushButton_clicked()
 
     JsonObjectToPlaintText(temp_json_obj);
 }
+
+void ESP_MQTT_Config_Window::on_digital_read_pin_16_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_READ_COMMAND;
+    (temp_json_obj)["pin"] = 16;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_read_pin_5_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_READ_COMMAND;
+    (temp_json_obj)["pin"] = 5;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_read_pin_4_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_READ_COMMAND;
+    (temp_json_obj)["pin"] = 4;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_read_pin_0_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_READ_COMMAND;
+    (temp_json_obj)["pin"] = 0;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_read_pin_2_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_READ_COMMAND;
+    (temp_json_obj)["pin"] = 2;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_read_pin_14_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_READ_COMMAND;
+    (temp_json_obj)["pin"] = 14;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_read_pin_12_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_READ_COMMAND;
+    (temp_json_obj)["pin"] = 12;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_read_pin_13_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_READ_COMMAND;
+    (temp_json_obj)["pin"] = 13;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_read_pin_15_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_READ_COMMAND;
+    (temp_json_obj)["pin"] = 15;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_write_pin_16_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 16;
+    (temp_json_obj)["value"] = uint8_t(ui->digital_write_pin_16_checkBox->isChecked());
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_write_pin_5_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 5;
+    (temp_json_obj)["value"] = uint8_t(ui->digital_write_pin_5_checkBox->isChecked());
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_write_pin_4_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 4;
+    (temp_json_obj)["value"] = uint8_t(ui->digital_write_pin_4_checkBox->isChecked());
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_write_pin_0_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 0;
+    (temp_json_obj)["value"] = uint8_t(ui->digital_write_pin_0_checkBox->isChecked());
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_write_pin_2_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 2;
+    (temp_json_obj)["value"] = uint8_t(ui->digital_write_pin_2_checkBox->isChecked());
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_write_pin_14_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 14;
+    (temp_json_obj)["value"] = uint8_t(ui->digital_write_pin_14_checkBox->isChecked());
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_write_pin_12_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 12;
+    (temp_json_obj)["value"] = uint8_t(ui->digital_write_pin_12_checkBox->isChecked());
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_write_pin_13_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 13;
+    (temp_json_obj)["value"] = uint8_t(ui->digital_write_pin_13_checkBox->isChecked());
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_digital_write_pin_15_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = DIGITAL_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 15;
+    (temp_json_obj)["value"] = uint8_t(ui->digital_write_pin_15_checkBox->isChecked());
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_analog_write_pin_5_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = ANALOG_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 5;
+    (temp_json_obj)["value"] = ui->analog_write_pin_5_lineEdit->text().toInt();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_analog_write_pin_4_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = ANALOG_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 4;
+    (temp_json_obj)["value"] = ui->analog_write_pin_4_lineEdit->text().toInt();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_analog_write_pin_0_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = ANALOG_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 0;
+    (temp_json_obj)["value"] = ui->analog_write_pin_0_lineEdit->text().toInt();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_analog_write_pin_2_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = ANALOG_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 2;
+    (temp_json_obj)["value"] = ui->analog_write_pin_2_lineEdit->text().toInt();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_analog_write_pin_14_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = ANALOG_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 14;
+    (temp_json_obj)["value"] = ui->analog_write_pin_14_lineEdit->text().toInt();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_analog_write_pin_12_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = ANALOG_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 12;
+    (temp_json_obj)["value"] = ui->analog_write_pin_12_lineEdit->text().toInt();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_analog_write_pin_13_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = ANALOG_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 13;
+    (temp_json_obj)["value"] = ui->analog_write_pin_13_lineEdit->text().toInt();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_analog_write_pin_15_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = ANALOG_WRITE_COMMAND;
+    (temp_json_obj)["pin"] = 15;
+    (temp_json_obj)["value"] = ui->analog_write_pin_15_lineEdit->text().toInt();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_MQTT_Config_Window::on_analog_read_pin_A0_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = ANALOG_READ_COMMAND;
+    (temp_json_obj)["pin"] = "A0";
+
+    JsonObjectToPlaintText(temp_json_obj);
+}

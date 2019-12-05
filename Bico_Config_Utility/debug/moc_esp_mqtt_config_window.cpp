@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ESP_MQTT_Config_Window_t {
-    QByteArrayData data[70];
-    char stringdata0[2479];
+    QByteArrayData data[97];
+    char stringdata0[3609];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -101,7 +101,34 @@ QT_MOC_LITERAL(65, 2287, 37), // "on_publish_command_pushButton..."
 QT_MOC_LITERAL(66, 2325, 41), // "on_unsubscribe_command_pushBu..."
 QT_MOC_LITERAL(67, 2367, 40), // "on_disconnect_command_pushBut..."
 QT_MOC_LITERAL(68, 2408, 34), // "on_ping_command_pushButton_cl..."
-QT_MOC_LITERAL(69, 2443, 35) // "on_device_reboot_pushButton_c..."
+QT_MOC_LITERAL(69, 2443, 35), // "on_device_reboot_pushButton_c..."
+QT_MOC_LITERAL(70, 2479, 41), // "on_digital_read_pin_16_pushBu..."
+QT_MOC_LITERAL(71, 2521, 40), // "on_digital_read_pin_5_pushBut..."
+QT_MOC_LITERAL(72, 2562, 40), // "on_digital_read_pin_4_pushBut..."
+QT_MOC_LITERAL(73, 2603, 40), // "on_digital_read_pin_0_pushBut..."
+QT_MOC_LITERAL(74, 2644, 40), // "on_digital_read_pin_2_pushBut..."
+QT_MOC_LITERAL(75, 2685, 41), // "on_digital_read_pin_14_pushBu..."
+QT_MOC_LITERAL(76, 2727, 41), // "on_digital_read_pin_12_pushBu..."
+QT_MOC_LITERAL(77, 2769, 41), // "on_digital_read_pin_13_pushBu..."
+QT_MOC_LITERAL(78, 2811, 41), // "on_digital_read_pin_15_pushBu..."
+QT_MOC_LITERAL(79, 2853, 42), // "on_digital_write_pin_16_pushB..."
+QT_MOC_LITERAL(80, 2896, 41), // "on_digital_write_pin_5_pushBu..."
+QT_MOC_LITERAL(81, 2938, 41), // "on_digital_write_pin_4_pushBu..."
+QT_MOC_LITERAL(82, 2980, 41), // "on_digital_write_pin_0_pushBu..."
+QT_MOC_LITERAL(83, 3022, 41), // "on_digital_write_pin_2_pushBu..."
+QT_MOC_LITERAL(84, 3064, 42), // "on_digital_write_pin_14_pushB..."
+QT_MOC_LITERAL(85, 3107, 42), // "on_digital_write_pin_12_pushB..."
+QT_MOC_LITERAL(86, 3150, 42), // "on_digital_write_pin_13_pushB..."
+QT_MOC_LITERAL(87, 3193, 42), // "on_digital_write_pin_15_pushB..."
+QT_MOC_LITERAL(88, 3236, 40), // "on_analog_write_pin_5_pushBut..."
+QT_MOC_LITERAL(89, 3277, 40), // "on_analog_write_pin_4_pushBut..."
+QT_MOC_LITERAL(90, 3318, 40), // "on_analog_write_pin_0_pushBut..."
+QT_MOC_LITERAL(91, 3359, 40), // "on_analog_write_pin_2_pushBut..."
+QT_MOC_LITERAL(92, 3400, 41), // "on_analog_write_pin_14_pushBu..."
+QT_MOC_LITERAL(93, 3442, 41), // "on_analog_write_pin_12_pushBu..."
+QT_MOC_LITERAL(94, 3484, 41), // "on_analog_write_pin_13_pushBu..."
+QT_MOC_LITERAL(95, 3526, 41), // "on_analog_write_pin_15_pushBu..."
+QT_MOC_LITERAL(96, 3568, 40) // "on_analog_read_pin_A0_pushBut..."
 
     },
     "ESP_MQTT_Config_Window\0"
@@ -171,7 +198,34 @@ QT_MOC_LITERAL(69, 2443, 35) // "on_device_reboot_pushButton_c..."
     "on_unsubscribe_command_pushButton_clicked\0"
     "on_disconnect_command_pushButton_clicked\0"
     "on_ping_command_pushButton_clicked\0"
-    "on_device_reboot_pushButton_clicked"
+    "on_device_reboot_pushButton_clicked\0"
+    "on_digital_read_pin_16_pushButton_clicked\0"
+    "on_digital_read_pin_5_pushButton_clicked\0"
+    "on_digital_read_pin_4_pushButton_clicked\0"
+    "on_digital_read_pin_0_pushButton_clicked\0"
+    "on_digital_read_pin_2_pushButton_clicked\0"
+    "on_digital_read_pin_14_pushButton_clicked\0"
+    "on_digital_read_pin_12_pushButton_clicked\0"
+    "on_digital_read_pin_13_pushButton_clicked\0"
+    "on_digital_read_pin_15_pushButton_clicked\0"
+    "on_digital_write_pin_16_pushButton_clicked\0"
+    "on_digital_write_pin_5_pushButton_clicked\0"
+    "on_digital_write_pin_4_pushButton_clicked\0"
+    "on_digital_write_pin_0_pushButton_clicked\0"
+    "on_digital_write_pin_2_pushButton_clicked\0"
+    "on_digital_write_pin_14_pushButton_clicked\0"
+    "on_digital_write_pin_12_pushButton_clicked\0"
+    "on_digital_write_pin_13_pushButton_clicked\0"
+    "on_digital_write_pin_15_pushButton_clicked\0"
+    "on_analog_write_pin_5_pushButton_clicked\0"
+    "on_analog_write_pin_4_pushButton_clicked\0"
+    "on_analog_write_pin_0_pushButton_clicked\0"
+    "on_analog_write_pin_2_pushButton_clicked\0"
+    "on_analog_write_pin_14_pushButton_clicked\0"
+    "on_analog_write_pin_12_pushButton_clicked\0"
+    "on_analog_write_pin_13_pushButton_clicked\0"
+    "on_analog_write_pin_15_pushButton_clicked\0"
+    "on_analog_read_pin_A0_pushButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -181,7 +235,7 @@ static const uint qt_meta_data_ESP_MQTT_Config_Window[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      67,   14, // methods
+      94,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -189,73 +243,100 @@ static const uint qt_meta_data_ESP_MQTT_Config_Window[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  349,    2, 0x0a /* Public */,
-       3,    0,  350,    2, 0x0a /* Public */,
-       4,    0,  351,    2, 0x0a /* Public */,
-       5,    0,  352,    2, 0x08 /* Private */,
-       6,    0,  353,    2, 0x08 /* Private */,
-       7,    0,  354,    2, 0x08 /* Private */,
-       8,    0,  355,    2, 0x08 /* Private */,
-       9,    0,  356,    2, 0x08 /* Private */,
-      10,    0,  357,    2, 0x08 /* Private */,
-      11,    0,  358,    2, 0x08 /* Private */,
-      12,    0,  359,    2, 0x08 /* Private */,
-      13,    0,  360,    2, 0x08 /* Private */,
-      14,    0,  361,    2, 0x08 /* Private */,
-      15,    0,  362,    2, 0x08 /* Private */,
-      16,    0,  363,    2, 0x08 /* Private */,
-      17,    0,  364,    2, 0x08 /* Private */,
-      18,    0,  365,    2, 0x08 /* Private */,
-      19,    0,  366,    2, 0x08 /* Private */,
-      20,    0,  367,    2, 0x08 /* Private */,
-      21,    0,  368,    2, 0x08 /* Private */,
-      22,    0,  369,    2, 0x08 /* Private */,
-      23,    0,  370,    2, 0x08 /* Private */,
-      24,    1,  371,    2, 0x08 /* Private */,
-      26,    0,  374,    2, 0x08 /* Private */,
-      27,    0,  375,    2, 0x08 /* Private */,
-      28,    1,  376,    2, 0x08 /* Private */,
-      29,    1,  379,    2, 0x08 /* Private */,
-      30,    1,  382,    2, 0x08 /* Private */,
-      31,    0,  385,    2, 0x08 /* Private */,
-      32,    0,  386,    2, 0x08 /* Private */,
-      33,    1,  387,    2, 0x08 /* Private */,
-      34,    0,  390,    2, 0x08 /* Private */,
-      35,    0,  391,    2, 0x08 /* Private */,
-      36,    0,  392,    2, 0x08 /* Private */,
-      37,    0,  393,    2, 0x08 /* Private */,
-      38,    0,  394,    2, 0x08 /* Private */,
-      39,    0,  395,    2, 0x08 /* Private */,
-      40,    0,  396,    2, 0x08 /* Private */,
-      41,    0,  397,    2, 0x08 /* Private */,
-      42,    0,  398,    2, 0x08 /* Private */,
-      43,    0,  399,    2, 0x08 /* Private */,
-      44,    1,  400,    2, 0x08 /* Private */,
-      45,    1,  403,    2, 0x08 /* Private */,
-      46,    0,  406,    2, 0x08 /* Private */,
-      47,    0,  407,    2, 0x08 /* Private */,
-      48,    0,  408,    2, 0x08 /* Private */,
-      49,    0,  409,    2, 0x08 /* Private */,
-      50,    0,  410,    2, 0x08 /* Private */,
-      51,    0,  411,    2, 0x08 /* Private */,
-      52,    0,  412,    2, 0x08 /* Private */,
-      53,    0,  413,    2, 0x08 /* Private */,
-      54,    0,  414,    2, 0x08 /* Private */,
-      55,    0,  415,    2, 0x08 /* Private */,
-      56,    0,  416,    2, 0x08 /* Private */,
-      57,    0,  417,    2, 0x08 /* Private */,
-      58,    0,  418,    2, 0x08 /* Private */,
-      59,    0,  419,    2, 0x08 /* Private */,
-      60,    0,  420,    2, 0x08 /* Private */,
-      61,    0,  421,    2, 0x08 /* Private */,
-      62,    0,  422,    2, 0x08 /* Private */,
-      63,    0,  423,    2, 0x08 /* Private */,
-      64,    0,  424,    2, 0x08 /* Private */,
-      65,    0,  425,    2, 0x08 /* Private */,
-      66,    0,  426,    2, 0x08 /* Private */,
-      67,    0,  427,    2, 0x08 /* Private */,
-      68,    0,  428,    2, 0x08 /* Private */,
-      69,    0,  429,    2, 0x08 /* Private */,
+       1,    0,  484,    2, 0x0a /* Public */,
+       3,    0,  485,    2, 0x0a /* Public */,
+       4,    0,  486,    2, 0x0a /* Public */,
+       5,    0,  487,    2, 0x08 /* Private */,
+       6,    0,  488,    2, 0x08 /* Private */,
+       7,    0,  489,    2, 0x08 /* Private */,
+       8,    0,  490,    2, 0x08 /* Private */,
+       9,    0,  491,    2, 0x08 /* Private */,
+      10,    0,  492,    2, 0x08 /* Private */,
+      11,    0,  493,    2, 0x08 /* Private */,
+      12,    0,  494,    2, 0x08 /* Private */,
+      13,    0,  495,    2, 0x08 /* Private */,
+      14,    0,  496,    2, 0x08 /* Private */,
+      15,    0,  497,    2, 0x08 /* Private */,
+      16,    0,  498,    2, 0x08 /* Private */,
+      17,    0,  499,    2, 0x08 /* Private */,
+      18,    0,  500,    2, 0x08 /* Private */,
+      19,    0,  501,    2, 0x08 /* Private */,
+      20,    0,  502,    2, 0x08 /* Private */,
+      21,    0,  503,    2, 0x08 /* Private */,
+      22,    0,  504,    2, 0x08 /* Private */,
+      23,    0,  505,    2, 0x08 /* Private */,
+      24,    1,  506,    2, 0x08 /* Private */,
+      26,    0,  509,    2, 0x08 /* Private */,
+      27,    0,  510,    2, 0x08 /* Private */,
+      28,    1,  511,    2, 0x08 /* Private */,
+      29,    1,  514,    2, 0x08 /* Private */,
+      30,    1,  517,    2, 0x08 /* Private */,
+      31,    0,  520,    2, 0x08 /* Private */,
+      32,    0,  521,    2, 0x08 /* Private */,
+      33,    1,  522,    2, 0x08 /* Private */,
+      34,    0,  525,    2, 0x08 /* Private */,
+      35,    0,  526,    2, 0x08 /* Private */,
+      36,    0,  527,    2, 0x08 /* Private */,
+      37,    0,  528,    2, 0x08 /* Private */,
+      38,    0,  529,    2, 0x08 /* Private */,
+      39,    0,  530,    2, 0x08 /* Private */,
+      40,    0,  531,    2, 0x08 /* Private */,
+      41,    0,  532,    2, 0x08 /* Private */,
+      42,    0,  533,    2, 0x08 /* Private */,
+      43,    0,  534,    2, 0x08 /* Private */,
+      44,    1,  535,    2, 0x08 /* Private */,
+      45,    1,  538,    2, 0x08 /* Private */,
+      46,    0,  541,    2, 0x08 /* Private */,
+      47,    0,  542,    2, 0x08 /* Private */,
+      48,    0,  543,    2, 0x08 /* Private */,
+      49,    0,  544,    2, 0x08 /* Private */,
+      50,    0,  545,    2, 0x08 /* Private */,
+      51,    0,  546,    2, 0x08 /* Private */,
+      52,    0,  547,    2, 0x08 /* Private */,
+      53,    0,  548,    2, 0x08 /* Private */,
+      54,    0,  549,    2, 0x08 /* Private */,
+      55,    0,  550,    2, 0x08 /* Private */,
+      56,    0,  551,    2, 0x08 /* Private */,
+      57,    0,  552,    2, 0x08 /* Private */,
+      58,    0,  553,    2, 0x08 /* Private */,
+      59,    0,  554,    2, 0x08 /* Private */,
+      60,    0,  555,    2, 0x08 /* Private */,
+      61,    0,  556,    2, 0x08 /* Private */,
+      62,    0,  557,    2, 0x08 /* Private */,
+      63,    0,  558,    2, 0x08 /* Private */,
+      64,    0,  559,    2, 0x08 /* Private */,
+      65,    0,  560,    2, 0x08 /* Private */,
+      66,    0,  561,    2, 0x08 /* Private */,
+      67,    0,  562,    2, 0x08 /* Private */,
+      68,    0,  563,    2, 0x08 /* Private */,
+      69,    0,  564,    2, 0x08 /* Private */,
+      70,    0,  565,    2, 0x08 /* Private */,
+      71,    0,  566,    2, 0x08 /* Private */,
+      72,    0,  567,    2, 0x08 /* Private */,
+      73,    0,  568,    2, 0x08 /* Private */,
+      74,    0,  569,    2, 0x08 /* Private */,
+      75,    0,  570,    2, 0x08 /* Private */,
+      76,    0,  571,    2, 0x08 /* Private */,
+      77,    0,  572,    2, 0x08 /* Private */,
+      78,    0,  573,    2, 0x08 /* Private */,
+      79,    0,  574,    2, 0x08 /* Private */,
+      80,    0,  575,    2, 0x08 /* Private */,
+      81,    0,  576,    2, 0x08 /* Private */,
+      82,    0,  577,    2, 0x08 /* Private */,
+      83,    0,  578,    2, 0x08 /* Private */,
+      84,    0,  579,    2, 0x08 /* Private */,
+      85,    0,  580,    2, 0x08 /* Private */,
+      86,    0,  581,    2, 0x08 /* Private */,
+      87,    0,  582,    2, 0x08 /* Private */,
+      88,    0,  583,    2, 0x08 /* Private */,
+      89,    0,  584,    2, 0x08 /* Private */,
+      90,    0,  585,    2, 0x08 /* Private */,
+      91,    0,  586,    2, 0x08 /* Private */,
+      92,    0,  587,    2, 0x08 /* Private */,
+      93,    0,  588,    2, 0x08 /* Private */,
+      94,    0,  589,    2, 0x08 /* Private */,
+      95,    0,  590,    2, 0x08 /* Private */,
+      96,    0,  591,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -301,6 +382,33 @@ static const uint qt_meta_data_ESP_MQTT_Config_Window[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   25,
     QMetaType::Void, QMetaType::QString,   25,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -402,6 +510,33 @@ void ESP_MQTT_Config_Window::qt_static_metacall(QObject *_o, QMetaObject::Call _
         case 64: _t->on_disconnect_command_pushButton_clicked(); break;
         case 65: _t->on_ping_command_pushButton_clicked(); break;
         case 66: _t->on_device_reboot_pushButton_clicked(); break;
+        case 67: _t->on_digital_read_pin_16_pushButton_clicked(); break;
+        case 68: _t->on_digital_read_pin_5_pushButton_clicked(); break;
+        case 69: _t->on_digital_read_pin_4_pushButton_clicked(); break;
+        case 70: _t->on_digital_read_pin_0_pushButton_clicked(); break;
+        case 71: _t->on_digital_read_pin_2_pushButton_clicked(); break;
+        case 72: _t->on_digital_read_pin_14_pushButton_clicked(); break;
+        case 73: _t->on_digital_read_pin_12_pushButton_clicked(); break;
+        case 74: _t->on_digital_read_pin_13_pushButton_clicked(); break;
+        case 75: _t->on_digital_read_pin_15_pushButton_clicked(); break;
+        case 76: _t->on_digital_write_pin_16_pushButton_clicked(); break;
+        case 77: _t->on_digital_write_pin_5_pushButton_clicked(); break;
+        case 78: _t->on_digital_write_pin_4_pushButton_clicked(); break;
+        case 79: _t->on_digital_write_pin_0_pushButton_clicked(); break;
+        case 80: _t->on_digital_write_pin_2_pushButton_clicked(); break;
+        case 81: _t->on_digital_write_pin_14_pushButton_clicked(); break;
+        case 82: _t->on_digital_write_pin_12_pushButton_clicked(); break;
+        case 83: _t->on_digital_write_pin_13_pushButton_clicked(); break;
+        case 84: _t->on_digital_write_pin_15_pushButton_clicked(); break;
+        case 85: _t->on_analog_write_pin_5_pushButton_clicked(); break;
+        case 86: _t->on_analog_write_pin_4_pushButton_clicked(); break;
+        case 87: _t->on_analog_write_pin_0_pushButton_clicked(); break;
+        case 88: _t->on_analog_write_pin_2_pushButton_clicked(); break;
+        case 89: _t->on_analog_write_pin_14_pushButton_clicked(); break;
+        case 90: _t->on_analog_write_pin_12_pushButton_clicked(); break;
+        case 91: _t->on_analog_write_pin_13_pushButton_clicked(); break;
+        case 92: _t->on_analog_write_pin_15_pushButton_clicked(); break;
+        case 93: _t->on_analog_read_pin_A0_pushButton_clicked(); break;
         default: ;
         }
     }
@@ -436,13 +571,13 @@ int ESP_MQTT_Config_Window::qt_metacall(QMetaObject::Call _c, int _id, void **_a
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 67)
+        if (_id < 94)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 67;
+        _id -= 94;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 67)
+        if (_id < 94)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 67;
+        _id -= 94;
     }
     return _id;
 }
