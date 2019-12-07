@@ -50,6 +50,9 @@
 #ifndef ANALOG_WRITE_COMMAND
 #define ANALOG_WRITE_COMMAND "ANALOG_WRITE_COMMAND"
 #endif
+#ifndef SERIAL_WRITE_COMMAND
+#define SERIAL_WRITE_COMMAND "SERIAL_WRITE_COMMAND"
+#endif
 
 
 
@@ -209,5 +212,6 @@ private slots:
     void on_analog_write_pin_13_pushButton_clicked();
     void on_analog_write_pin_15_pushButton_clicked();
     void on_analog_read_pin_A0_pushButton_clicked();
+    void on_uart_write_pushButton_clicked();
 };
 #endif // ESP_MQTT_CONFIG_WINDOW_H

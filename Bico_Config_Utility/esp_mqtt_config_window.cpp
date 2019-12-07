@@ -1295,3 +1295,12 @@ void ESP_MQTT_Config_Window::on_analog_read_pin_A0_pushButton_clicked()
 
     JsonObjectToPlaintText(temp_json_obj);
 }
+
+void ESP_MQTT_Config_Window::on_uart_write_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_MQSC_COMMAND] = SERIAL_WRITE_COMMAND;
+    (temp_json_obj)["value"] = ui->uart_write_lineEdit->text();
+
+    JsonObjectToPlaintText(temp_json_obj);
+}

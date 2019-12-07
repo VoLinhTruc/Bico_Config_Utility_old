@@ -1995,7 +1995,7 @@ Builder</string>
          <x>10</x>
          <y>10</y>
          <width>381</width>
-         <height>521</height>
+         <height>541</height>
         </rect>
        </property>
        <property name="currentIndex">
@@ -2970,7 +2970,7 @@ Builder</string>
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>290</y>
+           <y>280</y>
            <width>51</width>
            <height>21</height>
           </rect>
@@ -2990,7 +2990,7 @@ Builder</string>
          <property name="geometry">
           <rect>
            <x>60</x>
-           <y>290</y>
+           <y>280</y>
            <width>75</width>
            <height>23</height>
           </rect>
@@ -3003,7 +3003,7 @@ Builder</string>
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>320</y>
+           <y>340</y>
            <width>351</width>
            <height>161</height>
           </rect>
@@ -3018,321 +3018,56 @@ Builder</string>
           <bool>true</bool>
          </property>
         </widget>
+        <widget class="QLineEdit" name="uart_write_lineEdit">
+         <property name="geometry">
+          <rect>
+           <x>60</x>
+           <y>310</y>
+           <width>231</width>
+           <height>21</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="uart_write_pushButton">
+         <property name="geometry">
+          <rect>
+           <x>300</x>
+           <y>310</y>
+           <width>71</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Serial Write</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="control_uart_label">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>310</y>
+           <width>51</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>UART</string>
+         </property>
+        </widget>
        </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="on_received_tab">
       <attribute name="title">
-       <string>On Received</string>
+       <string>...</string>
       </attribute>
-      <widget class="QTabWidget" name="tabWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>10</y>
-         <width>371</width>
-         <height>431</height>
-        </rect>
-       </property>
-       <property name="currentIndex">
-        <number>0</number>
-       </property>
-       <widget class="QWidget" name="tab_4">
-        <attribute name="title">
-         <string>Model A</string>
-        </attribute>
-        <widget class="QLabel" name="label_21">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>20</y>
-           <width>81</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>If Command =</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_15">
-         <property name="geometry">
-          <rect>
-           <x>100</x>
-           <y>20</y>
-           <width>113</width>
-           <height>20</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_22">
-         <property name="geometry">
-          <rect>
-           <x>230</x>
-           <y>20</y>
-           <width>41</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Do task</string>
-         </property>
-        </widget>
-        <widget class="QComboBox" name="comboBox_6">
-         <property name="geometry">
-          <rect>
-           <x>280</x>
-           <y>20</y>
-           <width>69</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <item>
-          <property name="text">
-           <string>1</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>3</string>
-          </property>
-         </item>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_16">
-         <property name="geometry">
-          <rect>
-           <x>100</x>
-           <y>60</y>
-           <width>113</width>
-           <height>20</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QComboBox" name="comboBox_7">
-         <property name="geometry">
-          <rect>
-           <x>280</x>
-           <y>60</y>
-           <width>69</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <item>
-          <property name="text">
-           <string>1</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>3</string>
-          </property>
-         </item>
-        </widget>
-        <widget class="QLabel" name="label_23">
-         <property name="geometry">
-          <rect>
-           <x>230</x>
-           <y>60</y>
-           <width>41</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Do task</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_24">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>60</y>
-           <width>81</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>If Command =</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_17">
-         <property name="geometry">
-          <rect>
-           <x>100</x>
-           <y>100</y>
-           <width>113</width>
-           <height>20</height>
-          </rect>
-         </property>
-        </widget>
-        <widget class="QComboBox" name="comboBox_8">
-         <property name="geometry">
-          <rect>
-           <x>280</x>
-           <y>100</y>
-           <width>69</width>
-           <height>22</height>
-          </rect>
-         </property>
-         <item>
-          <property name="text">
-           <string>1</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>2</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>3</string>
-          </property>
-         </item>
-        </widget>
-        <widget class="QLabel" name="label_25">
-         <property name="geometry">
-          <rect>
-           <x>230</x>
-           <y>100</y>
-           <width>41</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Do task</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_26">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>100</y>
-           <width>81</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>If Command =</string>
-         </property>
-        </widget>
-        <widget class="QTabWidget" name="tabWidget_3">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>160</y>
-           <width>331</width>
-           <height>211</height>
-          </rect>
-         </property>
-         <property name="currentIndex">
-          <number>0</number>
-         </property>
-         <widget class="QWidget" name="tab_7">
-          <attribute name="title">
-           <string>Task 1</string>
-          </attribute>
-          <widget class="QPlainTextEdit" name="plainTextEdit_2">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>40</y>
-             <width>301</width>
-             <height>131</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="file_load_pushButton_2">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>10</y>
-             <width>71</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Define Task</string>
-           </property>
-          </widget>
-         </widget>
-         <widget class="QWidget" name="tab_9">
-          <attribute name="title">
-           <string>Task 2</string>
-          </attribute>
-          <widget class="QPlainTextEdit" name="plainTextEdit_3">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>40</y>
-             <width>351</width>
-             <height>131</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="file_load_pushButton_3">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>10</y>
-             <width>71</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Define Task</string>
-           </property>
-          </widget>
-         </widget>
-         <widget class="QWidget" name="tab_8">
-          <attribute name="title">
-           <string>Task 3</string>
-          </attribute>
-          <widget class="QPlainTextEdit" name="plainTextEdit_4">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>40</y>
-             <width>351</width>
-             <height>131</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="file_load_pushButton_4">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>10</y>
-             <width>71</width>
-             <height>23</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Define Task</string>
-           </property>
-          </widget>
-         </widget>
-        </widget>
-       </widget>
-       <widget class="QWidget" name="tab_5">
-        <attribute name="title">
-         <string>Model B</string>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="tab_6">
-        <attribute name="title">
-         <string>Model C</string>
-        </attribute>
-       </widget>
-      </widget>
      </widget>
     </widget>
     <widget class="QCheckBox" name="append_content_checkBox">

@@ -11,8 +11,15 @@
 
 #define BC_SWFS_COMMAND "BC_SWFS_COMMAND" // setup wifi station
 #define SETTING_WIFI_CONFIG "SETTING_WIFI_CONFIG"
+
+#define BC_SWFS_GET_PROPERTIES "BC_SWFS_GET_PROPERTIES"
+
 #define WIFI_CONNECT "WIFI_CONNECT"
 #define WIFI_DISCONNECT "WIFI_DISCONNECT"
+
+#define BC_SWFS_DEVICE_REBOOT "BC_SWFS_DEVICE_REBOOT"
+
+
 
 using namespace std;
 
@@ -59,6 +66,14 @@ private slots:
 
     void on_connection_timeout_pushButton_clicked();
 
+    void on_get_properties_pushButton_clicked();
+
+    void on_wifi_connect_pushButton_clicked();
+
+    void on_wifi_disconnect_pushButton_clicked();
+
+    void on_device_reboot_pushButton_clicked();
+
 private:
     Ui::ESP_Wifi_Config_Window *ui;
 
@@ -85,6 +100,7 @@ public:
 private:
     void devConstruct();
     void devDestroy();
+    void JsonObjectToPlaintText(QJsonObject json_object);
 
 public slots:
     void update_serial_data_to_plaint_text();

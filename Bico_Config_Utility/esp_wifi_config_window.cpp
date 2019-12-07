@@ -37,6 +37,15 @@ void ESP_Wifi_Config_Window::devDestroy()
     disconnect(get_serial_data_timer_connection);
 }
 
+void ESP_Wifi_Config_Window::JsonObjectToPlaintText(QJsonObject json_object)
+{
+    QJsonDocument json_doc(json_object);
+    com_port_manager->print(QString(json_doc.toJson()));
+
+    ui->configuration_data_plainTextEdit->setPlainText(QString(json_doc.toJson()));
+}
+
+
 void ESP_Wifi_Config_Window::update_serial_data_to_plaint_text()
 {
     if(com_port_manager->available() > 0)
@@ -174,8 +183,7 @@ void ESP_Wifi_Config_Window::on_basic_setting_to_text_clicked()
         (temp_json_obj)["_dhcp_enable"] = uint8_t(ui->dhcp_enable_checkBox->isChecked());
         (temp_json_obj)["_connect_timeout"] = ui->connection_timeout_lineEdit->text().toInt();
 
-        QJsonDocument json_doc(temp_json_obj);
-        ui->configuration_data_plainTextEdit->setPlainText(QString(json_doc.toJson()));
+        JsonObjectToPlaintText(temp_json_obj);
 }
 
 
@@ -245,10 +253,7 @@ void ESP_Wifi_Config_Window::on_ssid_pushButton_clicked()
     (temp_json_obj)[BC_SWFS_COMMAND] = SETTING_WIFI_CONFIG;
     (temp_json_obj)["_host_ssid"] = ui->ssid_lineEdit->text();
 
-    QJsonDocument json_doc(temp_json_obj);
-    com_port_manager->print(QString(json_doc.toJson()));
-
-    ui->configuration_data_plainTextEdit->setPlainText(QString(json_doc.toJson()));
+    JsonObjectToPlaintText(temp_json_obj);
 }
 
 void ESP_Wifi_Config_Window::on_password_pushButton_clicked()
@@ -257,10 +262,7 @@ void ESP_Wifi_Config_Window::on_password_pushButton_clicked()
     (temp_json_obj)[BC_SWFS_COMMAND] = SETTING_WIFI_CONFIG;
     (temp_json_obj)["_host_password"] = ui->password_lineEdit->text();
 
-    QJsonDocument json_doc(temp_json_obj);
-    com_port_manager->print(QString(json_doc.toJson()));
-
-    ui->configuration_data_plainTextEdit->setPlainText(QString(json_doc.toJson()));
+    JsonObjectToPlaintText(temp_json_obj);
 }
 
 void ESP_Wifi_Config_Window::on_dhcp_enable_pushButton_clicked()
@@ -269,10 +271,7 @@ void ESP_Wifi_Config_Window::on_dhcp_enable_pushButton_clicked()
     (temp_json_obj)[BC_SWFS_COMMAND] = SETTING_WIFI_CONFIG;
     (temp_json_obj)["_dhcp_enable"] = uint8_t(ui->dhcp_enable_checkBox->isChecked());
 
-    QJsonDocument json_doc(temp_json_obj);
-    com_port_manager->print(QString(json_doc.toJson()));
-
-    ui->configuration_data_plainTextEdit->setPlainText(QString(json_doc.toJson()));
+    JsonObjectToPlaintText(temp_json_obj);
 }
 
 void ESP_Wifi_Config_Window::on_static_ip_pushButton_clicked()
@@ -281,10 +280,7 @@ void ESP_Wifi_Config_Window::on_static_ip_pushButton_clicked()
     (temp_json_obj)[BC_SWFS_COMMAND] = SETTING_WIFI_CONFIG;
     (temp_json_obj)["_ip"] = ui->static_ip_lineEdit->text();
 
-    QJsonDocument json_doc(temp_json_obj);
-    com_port_manager->print(QString(json_doc.toJson()));
-
-    ui->configuration_data_plainTextEdit->setPlainText(QString(json_doc.toJson()));
+    JsonObjectToPlaintText(temp_json_obj);
 }
 
 void ESP_Wifi_Config_Window::on_gateway_pushButton_clicked()
@@ -293,10 +289,7 @@ void ESP_Wifi_Config_Window::on_gateway_pushButton_clicked()
     (temp_json_obj)[BC_SWFS_COMMAND] = SETTING_WIFI_CONFIG;
     (temp_json_obj)["_gateway"] = ui->gateway_lineEdit->text();
 
-    QJsonDocument json_doc(temp_json_obj);
-    com_port_manager->print(QString(json_doc.toJson()));
-
-    ui->configuration_data_plainTextEdit->setPlainText(QString(json_doc.toJson()));
+    JsonObjectToPlaintText(temp_json_obj);
 }
 
 void ESP_Wifi_Config_Window::on_subnet_pushButton_clicked()
@@ -305,10 +298,7 @@ void ESP_Wifi_Config_Window::on_subnet_pushButton_clicked()
     (temp_json_obj)[BC_SWFS_COMMAND] = SETTING_WIFI_CONFIG;
     (temp_json_obj)["_subnet"] = ui->subnet_lineEdit->text();
 
-    QJsonDocument json_doc(temp_json_obj);
-    com_port_manager->print(QString(json_doc.toJson()));
-
-    ui->configuration_data_plainTextEdit->setPlainText(QString(json_doc.toJson()));
+    JsonObjectToPlaintText(temp_json_obj);
 }
 
 void ESP_Wifi_Config_Window::on_connection_timeout_pushButton_clicked()
@@ -317,13 +307,42 @@ void ESP_Wifi_Config_Window::on_connection_timeout_pushButton_clicked()
     (temp_json_obj)[BC_SWFS_COMMAND] = SETTING_WIFI_CONFIG;
     (temp_json_obj)["_connect_timeout"] = ui->connection_timeout_lineEdit->text();
 
-    QJsonDocument json_doc(temp_json_obj);
-    com_port_manager->print(QString(json_doc.toJson()));
-
-    ui->configuration_data_plainTextEdit->setPlainText(QString(json_doc.toJson()));
+    JsonObjectToPlaintText(temp_json_obj);
 }
 
 void ESP_Wifi_Config_Window::on_submit_all_pushButton_clicked()
 {
     com_port_manager->print(ui->configuration_data_plainTextEdit->toPlainText().toUtf8());
+}
+
+void ESP_Wifi_Config_Window::on_get_properties_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_SWFS_COMMAND] = BC_SWFS_GET_PROPERTIES;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_Wifi_Config_Window::on_wifi_connect_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_SWFS_COMMAND] = WIFI_CONNECT;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_Wifi_Config_Window::on_wifi_disconnect_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_SWFS_COMMAND] = WIFI_DISCONNECT;
+
+    JsonObjectToPlaintText(temp_json_obj);
+}
+
+void ESP_Wifi_Config_Window::on_device_reboot_pushButton_clicked()
+{
+    QJsonObject temp_json_obj;
+    (temp_json_obj)[BC_SWFS_COMMAND] = BC_SWFS_DEVICE_REBOOT;
+
+    JsonObjectToPlaintText(temp_json_obj);
 }
