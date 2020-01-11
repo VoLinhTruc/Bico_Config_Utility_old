@@ -1,0 +1,85 @@
+{
+    "BC_MQSC_COMMAND": "SETTING_BROKER_INFO",
+    "_broker_ip_address": "192.168.1.13",
+    "_broker_port": 6969
+}
+
+-----BC_MQSC_COMMAND_SEPERATOR-----
+{
+    "BC_MQSC_COMMAND": "SETTING_CONNECT_PACKET",
+    "Password": "",
+    "User_name": "",
+    "clean_sesion": 1,
+    "client_identifier": "client_2010",
+    "keep_alive": 60,
+    "password": 0,
+    "protocol_level": 4,
+    "protocol_name": "MQTT",
+    "user_name": 0,
+    "will_QoS": 0,
+    "will_flag": 0,
+    "will_message": "",
+    "will_retain": 0,
+    "will_topic": ""
+}
+
+-----BC_MQSC_COMMAND_SEPERATOR-----
+{
+    "BC_MQSC_COMMAND": "SETTING_SUBSCRIBE_PACKET",
+    "subscribe_packet_list": [
+        {
+            "max_QoS": 0,
+            "topic_filter": "test0"
+        },
+        {
+            "max_QoS": 0,
+            "topic_filter": "test1"
+        },
+        {
+            "max_QoS": 0,
+            "topic_filter": "test2"
+        },
+        {
+            "max_QoS": 0,
+            "topic_filter": "test3"
+        },
+        {
+            "max_QoS": 0,
+            "topic_filter": "test4"
+        }
+    ]
+}
+
+-----BC_MQSC_COMMAND_SEPERATOR-----
+{
+    "BC_MQSC_COMMAND": "SETTING_PUBLISH_PACKET",
+    "QoS": 0,
+    "application_message": "123456",
+    "dup": 0,
+    "retain": 0,
+    "topic_name": "test1"
+}
+
+-----BC_MQSC_COMMAND_SEPERATOR-----
+{
+    "BC_MQSC_COMMAND": "SETTING_ACTIVITY_CONFIG",
+    "_publish_continuous_interval": 5000,
+    "_publish_running_mode": "Continous",
+    "_publish_trigger_pin": 14,
+    "_publish_trigger_sign": "P",
+    "_publish_trigger_type": "Rising and Falling"
+}
+
+-----BC_MQSC_COMMAND_SEPERATOR-----
+{
+    "BC_MQSC_COMMAND": "SETTING_PINMODE",
+    "_pin_0_mode": "INPUT_MODE",
+    "_pin_12_mode": "INPUT_MODE",
+    "_pin_13_mode": "INPUT_MODE",
+    "_pin_14_mode": "INPUT_MODE",
+    "_pin_15_mode": "INPUT_MODE",
+    "_pin_16_mode": "OUTPUT_MODE",
+    "_pin_2_mode": "INPUT_MODE",
+    "_pin_4_mode": "INPUT_PULLUP_MODE",
+    "_pin_5_mode": "OUTPUT_MODE"
+}

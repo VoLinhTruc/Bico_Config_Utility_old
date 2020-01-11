@@ -1,0 +1,10 @@
+{
+    "BC_SWFS_COMMAND": "SETTING_WIFI_CONFIG",
+    "_connect_timeout": 20,
+    "_dhcp_enable": 0,
+    "_gateway": "192.168.1.1",
+    "_host_password": "Bico0388",
+    "_host_ssid": "BICO_2.4G",
+    "_ip": "192.168.1.169",
+    "_subnet": "255.255.255.0"
+}
